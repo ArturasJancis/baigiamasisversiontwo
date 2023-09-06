@@ -1,3 +1,4 @@
+// AnimalCard.js
 import React from "react";
 
 const AnimalCard = ({ animal, onAddToFavorites }) => {
@@ -5,7 +6,11 @@ const AnimalCard = ({ animal, onAddToFavorites }) => {
     <div>
       <h2>{animal.name}</h2>
       <p>Type: {animal.type}</p>
-      <button onClick={() => onAddToFavorites(animal)}>Add to Favorites</button>
+      {animal.addedToFavorites ? (
+        <button disabled>Added to Favorites</button>
+      ) : (
+        <button onClick={() => onAddToFavorites(animal)}>Add to Favorites</button>
+      )}
     </div>
   );
 };
